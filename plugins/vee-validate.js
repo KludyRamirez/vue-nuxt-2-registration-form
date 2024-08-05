@@ -5,15 +5,15 @@ import {
   ValidationProvider,
   ValidationObserver,
 } from 'vee-validate'
-import { required, min, confirmed } from 'vee-validate/dist/rules'
+import { required, min, max, confirmed, email } from 'vee-validate/dist/rules'
 import en from 'vee-validate/dist/locale/en.json'
 
-// Register the rules
 extend('required', required)
 extend('min', min)
+extend('max', max)
 extend('confirmed', confirmed)
+extend('email', email)
 
-// Set the default locale
 localize('en', {
   messages: en.messages,
   names: {
@@ -27,6 +27,5 @@ localize('en', {
   },
 })
 
-// Register VeeValidate components globally
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
