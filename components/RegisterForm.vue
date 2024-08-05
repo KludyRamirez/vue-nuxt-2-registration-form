@@ -192,7 +192,6 @@
                     :error="errors.length > 0"
                     :error-message="errors[0]"
                     label="Please enter correct ID number."
-                    mask="#### #### #### ####"
                     fill-mask="#"
                     hint="Mask: #### #### #### ####, FillMask: #"
                   />
