@@ -252,14 +252,15 @@
 
           <div class="terms-container">
             <ValidationProvider
-              v-slot="{ errors }"
+              v-slot="{ errors, handleChange }"
               rules="required"
-              name="identityNumber"
+              name="checkbox"
             >
               <q-checkbox
                 v-model="terms"
                 :error="errors.length > 0"
                 :error-message="errors[0]"
+                @input="handleChange"
               />
             </ValidationProvider>
             <div class="terms-container__inner">
@@ -271,7 +272,7 @@
           <div class="register-button-container">
             <q-btn
               class="register-button"
-              :disable="invalid || !isCodeMatching"
+              :disable="invalid || !isCodeMatching || !terms"
             >
               <span class="register-text">Register</span>
             </q-btn>
